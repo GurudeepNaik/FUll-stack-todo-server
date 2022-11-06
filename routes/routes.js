@@ -1,6 +1,6 @@
 const express = require("express");
 const route = express.Router();
-const todoModel = require("../model/todoListModel");
+const todoModel = require("../model/todolistmodel");
 const jwt = require("jsonwebtoken");
 const secret = "SECRET";
 
