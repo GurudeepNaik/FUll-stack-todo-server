@@ -6,6 +6,7 @@ const login=require("./routes/login");
 const register=require("./routes/register");
 const cors=require("cors");
 const app=express();
+const PORT=process.env.PORT || 7000
 
 mongoose.connect("mongodb+srv://admin:password12345@empdata.ev8zn3q.mongodb.net/TodoList?retryWrites=true&w=majority",{
     useNewUrlParser: true,
@@ -18,6 +19,12 @@ mongoose.connect("mongodb+srv://admin:password12345@empdata.ev8zn3q.mongodb.net/
 
 
 app.use(cors());
+app.use((req,res,next)=>{
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+  res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+  next(); 
+})
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -31,6 +38,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(7000, () => {
+app.listen(PORT, () => {
   console.log("App is Running at 7000");
 });
