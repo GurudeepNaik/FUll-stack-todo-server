@@ -9,12 +9,12 @@ const app=express();
 const PORT=process.env.PORT || 7000
 
 mongoose.connect("mongodb+srv://admin:password12345@empdata.ev8zn3q.mongodb.net/TodoList?retryWrites=true&w=majority",{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },(err)=>{
-    if(err)console.log(err);
-    else console.log("DatabaseConnected")
-  }
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+},(err)=>{
+  if(err)console.log(err);
+  else console.log("DatabaseConnected")
+}
 )
 
 
